@@ -5,7 +5,7 @@ function DeleteItem({ handleDeleteConfirm, setDeleteState, id, deleteState }) {
   return (
     <Modal
       show={deleteState} //show or hide the Modal built on delete state from parent
-      size="lg"
+      size="md"
       aria-labelledby="contained-modal-title-vcenter"
       centered
       onHide={() => setDeleteState(false)} //hide the Modal
@@ -13,8 +13,11 @@ function DeleteItem({ handleDeleteConfirm, setDeleteState, id, deleteState }) {
       <Modal.Header closeButton>
         <Modal.Title>Delete Group Item</Modal.Title>
       </Modal.Header>
-      <p>Are you sure about delete this Item</p>
-      <Modal.Body></Modal.Body>
+
+      <Modal.Body>
+        {" "}
+        <p>Are you sure about delete this Item</p>
+      </Modal.Body>
 
       <Modal.Footer>
         <Button variant="primary" onClick={() => setDeleteState(false)}>

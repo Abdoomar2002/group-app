@@ -3,6 +3,7 @@ import GroupItem from "./GroupItem";
 import { useState } from "react";
 import DeleteItem from "./DeleteItem";
 import EditItem from "./EditItem";
+import toast from "react-hot-toast";
 
 function GroupList({ groupItems, setGroupItems }) {
   // set the state of the editing or deleted item ,Edit Modal show state , Delete Modal show state
@@ -40,6 +41,8 @@ function GroupList({ groupItems, setGroupItems }) {
     // update the groupItems
     const items = groupItems.filter((element) => element.id !== data.id);
     setGroupItems([...items, newItem]);
+    toast.success("Group edited successfully");
+
     //hide the edit Modal
     setEditState(false);
   }
@@ -48,11 +51,12 @@ function GroupList({ groupItems, setGroupItems }) {
     // filter the groupItems to remove the deleted item
     const items = groupItems.filter((element) => element.id !== id);
     setGroupItems(items);
+    toast.success("Group deleted successfully");
     // hide the Delete Modal
     setDeleteState(false);
   }
   return (
-    <Container>
+    <div>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -60,6 +64,8 @@ function GroupList({ groupItems, setGroupItems }) {
             <td>Group Name</td>
             <td>Group Descrtiption</td>
             <td>Created At</td>
+            <td>Edit</td>
+            <td>Delete </td>
           </tr>
         </thead>
         <tbody>
@@ -94,7 +100,7 @@ function GroupList({ groupItems, setGroupItems }) {
         description={editedItem.description}
         setEditState={setEditState}
       />
-    </Container>
+    </div>
   );
 }
 export default GroupList;

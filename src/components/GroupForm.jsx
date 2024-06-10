@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
-import { Form, Button, Col, Row } from "react-bootstrap";
-
+import { Form, Button, Col, Row, FormGroup, Toast } from "react-bootstrap";
+import { toast } from "react-hot-toast";
 function GroupForm({ setGroupItems }) {
   //set the inputs data state
   const [formData, setFormData] = useState({
@@ -9,6 +9,7 @@ function GroupForm({ setGroupItems }) {
     name: "",
     description: "",
     createAt: "",
+    posts: [],
   });
   //set the validated state of the form
   const [validated, setValidated] = useState(false);
@@ -37,6 +38,7 @@ function GroupForm({ setGroupItems }) {
       setGroupItems((items) => {
         return [...items, formData];
       });
+      toast.success("Group created successfully");
       //reset the form
       handelReset(e);
     }
@@ -52,7 +54,12 @@ function GroupForm({ setGroupItems }) {
     setValidated(false); //to avoid validate error when clearing the inputs
   }
   return (
-    <Form validated={validated} onSubmit={handleSubmit} onReset={handelReset}>
+    <Form
+      validated={validated}
+      className="Form"
+      onSubmit={handleSubmit}
+      onReset={handelReset}
+    >
       <Form.Group as={Row} controlId="Name">
         <Form.Label column sm={2}>
           Name
@@ -91,11 +98,17 @@ function GroupForm({ setGroupItems }) {
           </Form.Control.Feedback>
         </Col>
       </Form.Group>
-
-      <Button type="submit">Submit</Button>
-      <Button type="reset" className="btn-danger">
-        reset
-      </Button>
+      <Form.Group as={Row} controlId="buttons">
+        <Col sm={2}>Submit</Col>
+        <Col sm={10} className="md-1">
+          <div className="d-flex justify-content-between">
+            <Button type="reset" className="btn-danger">
+              reset
+            </Button>
+            <Button type="submit">Submit</Button>
+          </div>
+        </Col>
+      </Form.Group>
     </Form>
   );
 }

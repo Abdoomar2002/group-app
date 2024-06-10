@@ -1,21 +1,24 @@
-/* App.css */
-
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
+  background-color: #300724 !important;
 }
 
 .App {
-  background-color: #f8f9fa;
+  background-color: #581042;
   padding: 20px;
-  color: #333;
+  color: #fff;
 }
-
+.Header {
+  text-align: center;
+}
 /* Navbar.css */
 
 .Navbar {
-  background-color: #343a40;
   color: #fff;
+  display: flex;
+  justify-content: space-around;
+  margin: 50px;
 }
 
 .Navbar-brand {
@@ -37,7 +40,12 @@ body {
 }
 
 /* GroupForm.css */
-
+.Form {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  justify-content: space-between;
+}
 .FormGroup {
   margin-bottom: 20px;
 }

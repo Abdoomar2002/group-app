@@ -1,11 +1,10 @@
-import { Container } from "react-bootstrap";
-import Navbar from "./Navbar";
+import { Container, Tab, Tabs } from "react-bootstrap";
+
 import { useEffect, useState } from "react";
 import GroupFrom from "./GroupForm";
 import GroupList from "./GroupList";
+import { Toaster } from "react-hot-toast";
 function Home() {
-  //use state to handle pages instead of router because its only two page
-  const [activePage, setActivePage] = useState("form");
   // use state to handle the data over the app
   const [groupItems, setGroupItems] = useState([]);
 
@@ -24,25 +23,27 @@ function Home() {
     }
   }, [groupItems]);
 
-  //show the Group List Component
-  function ShowLists() {
-    setActivePage("list");
-  }
-  //show the Group Form Component
-  function ShowForms() {
-    setActivePage("form");
-  }
   return (
     <Container>
       <div className="Header">
         <h1>Group App</h1>
-        <Navbar ShowLists={ShowLists} ShowForms={ShowForms} />
+        <h4>A simple app to Add, View, Edit and Delete Groups </h4>
+        <br />
+        <Tabs
+          defaultActiveKey="Group"
+          id="justify-tab-example"
+          className="mb-3"
+          justify
+        >
+          <Tab eventKey="AddGroup" title="Add new Group">
+            <GroupFrom setGroupItems={setGroupItems} />
+          </Tab>
+          <Tab eventKey="ViewGroups" title="View Groups">
+            <GroupList setGroupItems={setGroupItems} groupItems={groupItems} />
+          </Tab>
+        </Tabs>
       </div>
-      {activePage == "form" ? (
-        <GroupFrom setGroupItems={setGroupItems} />
-      ) : (
-        <GroupList setGroupItems={setGroupItems} groupItems={groupItems} />
-      )}
+      <Toaster />
     </Container>
   );
 }
