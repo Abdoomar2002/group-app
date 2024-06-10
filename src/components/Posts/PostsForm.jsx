@@ -1,12 +1,18 @@
 import { useState } from "react";
+import { v4 as uuid } from "uuid";
 import { Form, Button } from "react-bootstrap";
-
+import { toast } from "react-hot-toast";
 function PostForm({ groupId, addPost }) {
-  const [formData, setFormData] = useState({ title: "", content: "" });
+  const [formData, setFormData] = useState({
+    id: uuid(),
+    title: "",
+    content: "",
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addPost(groupId, formData);
+    toast.success("Post Added successfully");
     setFormData({ title: "", content: "" });
   };
 
@@ -35,6 +41,7 @@ function PostForm({ groupId, addPost }) {
           required
         />
       </Form.Group>
+      <br />
       <Button variant="primary" type="submit">
         Submit
       </Button>

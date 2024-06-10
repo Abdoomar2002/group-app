@@ -12,7 +12,6 @@ body {
 .Header {
   text-align: center;
 }
-/* Navbar.css */
 
 .Navbar {
   color: #fff;
@@ -39,7 +38,6 @@ body {
   color: #007bff !important;
 }
 
-/* GroupForm.css */
 .Form {
   display: flex;
   flex-direction: column;
@@ -77,8 +75,6 @@ body {
   background-color: #0056b3;
 }
 
-/* GroupList.css */
-
 .Table {
   width: 100%;
   border-collapse: collapse;
@@ -100,8 +96,6 @@ body {
 .Table td {
   background-color: #fff;
 }
-
-/* GroupItem.css */
 
 .Button {
   padding: 10px 20px;

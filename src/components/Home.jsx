@@ -1,8 +1,8 @@
 import { Container, Tab, Tabs } from "react-bootstrap";
 
 import { useEffect, useState } from "react";
-import GroupFrom from "./GroupForm";
-import GroupList from "./GroupList";
+import GroupFrom from "./Groups/GroupForm";
+import GroupList from "./Groups/GroupList";
 import { Toaster } from "react-hot-toast";
 function Home() {
   // use state to handle the data over the app

@@ -7,6 +7,7 @@ function GroupItem({
   createAt,
   handelDelete,
   handelEditing,
+  handlePostsState,
 }) {
   return (
     <tr>
@@ -14,12 +15,19 @@ function GroupItem({
       <td>{name}</td>
       <td>{description}</td>
       <td>{createAt}</td>
+
       <td>
         <Button variant="info" onClick={handelEditing.bind(this, id)}>
           {" "}
           {/*set the object id to parent lifting state up */}
           Edit
         </Button>{" "}
+      </td>
+      <td>
+        <Button variant="info" onClick={handlePostsState.bind(this, id)}>
+          {" "}
+          View
+        </Button>
       </td>
       <td>
         <Button variant="danger" onClick={handelDelete.bind(this, id)}>

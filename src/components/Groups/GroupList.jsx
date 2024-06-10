@@ -1,15 +1,17 @@
-import { Container, Table } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import GroupItem from "./GroupItem";
 import { useState } from "react";
 import DeleteItem from "./DeleteItem";
 import EditItem from "./EditItem";
 import toast from "react-hot-toast";
+import Posts from "../Posts/Posts";
 
 function GroupList({ groupItems, setGroupItems }) {
   // set the state of the editing or deleted item ,Edit Modal show state , Delete Modal show state
   const [editedItem, setEditItem] = useState({});
   const [editState, setEditState] = useState(false);
   const [deleteState, setDeleteState] = useState(false);
+  const [postsState, setPostsState] = useState(false);
 
   // handel the deleted item from the tabel
   function handelDelete(id) {
@@ -28,6 +30,13 @@ function GroupList({ groupItems, setGroupItems }) {
     setEditItem(item);
     //show the edit modal
     setEditState(true);
+  }
+  function handlePostsState(id) {
+    const item = groupItems.find((element) => element.id === id);
+    //set the state of the edited item
+    setEditItem(item);
+    //show the edit modal
+    setPostsState(!postsState);
   }
   // handel the edit confirmation
   function handleChange(data) {
@@ -65,6 +74,7 @@ function GroupList({ groupItems, setGroupItems }) {
             <td>Group Descrtiption</td>
             <td>Created At</td>
             <td>Edit</td>
+            <td>View Posts</td>
             <td>Delete </td>
           </tr>
         </thead>
@@ -78,6 +88,7 @@ function GroupList({ groupItems, setGroupItems }) {
                   handelDelete={handelDelete}
                   handelEditing={handelEditing}
                   setEditedItem={setEditItem}
+                  handlePostsState={handlePostsState}
                 />
               );
             })}
@@ -100,6 +111,13 @@ function GroupList({ groupItems, setGroupItems }) {
         description={editedItem.description}
         setEditState={setEditState}
       />
+      {postsState && (
+        <Posts
+          items={editedItem}
+          setGroupsItems={setGroupItems}
+          groupsItems={groupItems}
+        />
+      )}
     </div>
   );
 }

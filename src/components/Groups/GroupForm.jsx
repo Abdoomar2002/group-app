@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import { Form, Button, Col, Row, FormGroup, Toast } from "react-bootstrap";
 import { toast } from "react-hot-toast";
@@ -11,6 +11,7 @@ function GroupForm({ setGroupItems }) {
     createAt: "",
     posts: [],
   });
+
   //set the validated state of the form
   const [validated, setValidated] = useState(false);
   //handle inputs changes by the input name and its value to state
