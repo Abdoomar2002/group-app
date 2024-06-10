@@ -1,38 +1,111 @@
+/* App.css */
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
 .App {
-  text-align: center;
+  background-color: #f8f9fa;
+  padding: 20px;
+  color: #333;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Navbar.css */
+
+.Navbar {
+  background-color: #343a40;
+  color: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Navbar-nav {
+  margin-left: auto;
 }
 
-.App-link {
-  color: #61dafb;
+.Nav-link {
+  color: #fff !important;
+  margin-left: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Nav-link:hover {
+  color: #007bff !important;
+}
+
+/* GroupForm.css */
+
+.FormGroup {
+  margin-bottom: 20px;
+}
+
+.FormLabel {
+  font-weight: bold;
+}
+
+.FormControl {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.SubmitButton {
+  padding: 10px 20px;
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.SubmitButton:hover {
+  background-color: #0056b3;
+}
+
+/* GroupList.css */
+
+.Table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.Table th,
+.Table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.Table th {
+  background-color: #007bff;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.Table td {
+  background-color: #fff;
+}
+
+/* GroupItem.css */
+
+.Button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Button:hover {
+  background-color: #0056b3;
 }
